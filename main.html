@@ -4,17 +4,23 @@
     <meta charset="UTF-8">
     <title>Title</title>
     <script src="https://d3js.org/d3.v5.js"></script>
+   <style>
+    .dataCircle{
+        fill : dodgerblue;
+    }
+   </style>
 </head>
 <body>
+<div>
+    <h1> Let's talk about counting! </h1>
+</div>
 <script type="text/javascript">
+
     //Some important vars
     // SVG Window Width
     var w = 500;
     // SVG Window Height
     var h = 50;
-
-
-
 
     // Dataset
     var dataset = [5, 5, 5, 5, 5];
@@ -30,7 +36,8 @@
     var circles = svg.selectAll('circle')
                      .data(dataset)
                      .enter()
-                     .append("circle");
+                     .append("circle")
+                     .attr("class", 'dataCircle');
 
 
     // Set some attributes for the newly created circles
@@ -46,5 +53,8 @@
 
 
 </script>
+<div>
+    <h1> So that is cool now what?  </h1>
+</div>
 </body>
 </html>
