@@ -8,13 +8,17 @@
     .dataCircle{
         fill : dodgerblue;
     }
+    #dataCircle22{
+        fill : tomato;
+    }
    </style>
 </head>
 <body>
 <div>
     <h1> Let's talk about counting! </h1>
 </div>
-<script type="text/javascript">
+<div>
+    <script type="text/javascript">
 
     //Some important vars
     // SVG Window Width
@@ -52,9 +56,55 @@
 
 
 
-</script>
+    </script>
+</div>
 <div>
     <h1> So that is cool now what?  </h1>
+</div>
+
+<div>
+    <script type="text/javascript">
+
+    //Some important vars
+    // SVG Window Width
+    var w = 500;
+    // SVG Window Height
+    var h = 50;
+
+    // Dataset
+    var dataset = [5, 5, 5, 5, 5];
+
+    // Create the SVG Window
+    var svg = d3.select("body")
+                .append("svg")
+                .attr("width", w)
+                .attr("height", h);
+
+    // Create the Circles to go into SVG Window
+    // Yea selecting before they exist and then appending them is wired
+    var circles = svg.selectAll('circle')
+                     .data(dataset)
+                     .enter()
+                     .append("circle")
+                     .attr("class", 'dataCircle')
+                     .attr("id", function(d,i){
+                         return "dataCircle2" + i;
+                     });
+
+
+    // Set some attributes for the newly created circles
+    // SVG: <circle cx="100" cy="100" r="100" />
+    circles.attr("cx", function(d,i){
+        return (i*50) +25
+                })
+                .attr("cy", h/2)
+                .attr("r", function(d){
+                    return d;
+                });
+
+
+
+    </script>
 </div>
 </body>
 </html>
